@@ -1,30 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ML API</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>California House Price Prediction</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 40px;
+            border-radius: 20px;
+            width: 380px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border: none;
+            background: #1abc9c;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #16a085;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+    </style>
 </head>
 <body>
-    <div class="login">
+    <div class="container">
         <h1>California House Price Prediction</h1>
 
-        <!-- Form sends data to Flask function 'predict' -->
         <form action="{{ url_for('predict') }}" method="post">
-            <input type="text" name="MedInc" placeholder="Median Income" required><br><br>
-            <input type="text" name="HouseAge" placeholder="House Age" required><br><br>
-            <input type="text" name="AveRooms" placeholder="Average Rooms" required><br><br>
-            <input type="text" name="AveBedrms" placeholder="Average Bedrooms" required><br><br>
-            <input type="text" name="Population" placeholder="Population" required><br><br>
-            <input type="text" name="AveOccup" placeholder="Average Occupancy" required><br><br>
-            <input type="text" name="Latitude" placeholder="Latitude" required><br><br>
-            <input type="text" name="Longitude" placeholder="Longitude" required><br><br>
+            <input type="text" name="MedInc" placeholder="Median Income" required>
+            <input type="text" name="HouseAge" placeholder="House Age" required>
+            <input type="text" name="AveRooms" placeholder="Average Rooms" required>
+            <input type="text" name="AveBedrms" placeholder="Average Bedrooms" required>
+            <input type="text" name="Population" placeholder="Population" required>
+            <input type="text" name="AveOccup" placeholder="Average Occupancy" required>
+            <input type="text" name="Latitude" placeholder="Latitude" required>
+            <input type="text" name="Longitude" placeholder="Longitude" required>
 
             <button type="submit">Predict</button>
         </form>
 
-        <!-- Show result -->
         <h2>{{ prediction_text }}</h2>
     </div>
 </body>
 </html>
-
-
